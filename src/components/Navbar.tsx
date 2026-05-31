@@ -1,9 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    if (location.pathname === "/") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollToContact: true } });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent px-6 py-4">
@@ -25,7 +41,7 @@ export default function Navbar() {
           <Link to="/mobility" className="hover:text-white transition-colors">Mobility</Link>
           <Link to="/material-handling" className="hover:text-white transition-colors">Material Handling Equipment</Link>
           <Link to="/innovation-and-rd" className="hover:text-white transition-colors">Custom BLDC Motor drives</Link>
-          <Link to="#contact" className="hover:text-white transition-colors">Contact</Link>
+          <Link to="#contact" onClick={handleContactClick} className="hover:text-white transition-colors">Contact</Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -44,7 +60,7 @@ export default function Navbar() {
           <Link to="/mobility" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Mobility</Link>
           <Link to="/material-handling" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Material Handling</Link>
           <Link to="/innovation-and-rd" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Custom BLDC Motor drives</Link>
-          <Link to="#contact" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="#contact" className="text-lg font-medium" onClick={handleContactClick}>Contact</Link>
         </div>
       )}
     </nav>
