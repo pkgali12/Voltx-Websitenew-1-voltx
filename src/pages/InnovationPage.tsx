@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Globe, Navigation, Box, Zap, Settings, Cpu, Microscope } from "lucide-react";
 
 export default function InnovationPage() {
+  const navigate = useNavigate();
   const competencies = [
     {
       icon: <Globe className="w-6 h-6" />,
@@ -57,7 +59,10 @@ export default function InnovationPage() {
            transition={{ delay: 0.4 }}
            className="mt-12"
         >
-           <button className="bg-brand hover:brightness-110 text-zinc-950 px-12 py-5 rounded-full font-bold flex items-center gap-2 mx-auto transition-all text-xl shadow-[0_0_30px_rgba(56,189,248,0.3)] uppercase tracking-wide">
+           <button 
+             onClick={() => navigate("/", { state: { scrollToContact: true } })}
+             className="bg-brand hover:brightness-110 text-zinc-950 px-12 py-5 rounded-full font-bold flex items-center gap-2 mx-auto transition-all text-xl shadow-[0_0_30px_rgba(56,189,248,0.3)] uppercase tracking-wide"
+           >
             Partner With Us
             <ArrowRight className="w-6 h-6" />
           </button>

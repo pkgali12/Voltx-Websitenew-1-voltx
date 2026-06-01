@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { Battery, Shield, Zap, ChevronRight, Settings } from "lucide-react";
 
 export default function MobilityPage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-zinc-950 pt-32 pb-20">
       {/* Hero Section */}
@@ -263,6 +265,7 @@ export default function MobilityPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
+            onClick={() => navigate("/", { state: { scrollToContact: true } })}
             className="bg-brand hover:brightness-110 text-zinc-950 px-12 py-5 rounded-full font-bold flex items-center gap-2 mx-auto transition-all text-lg shadow-[0_0_30px_rgba(56,189,248,0.3)] mb-12"
           >
             Discuss a Pilot Program

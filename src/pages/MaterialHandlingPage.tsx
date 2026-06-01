@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, ChevronRight, Truck, Package, Activity, ShieldCheck, Factory } from "lucide-react";
 
 export default function MaterialHandlingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white pt-32 pb-20 mesh-gradient">
       {/* Hero Section */}
@@ -148,7 +151,10 @@ export default function MaterialHandlingPage() {
           <p className="text-lg md:text-xl text-zinc-400 mb-12 leading-relaxed">
             From payload capacity to specialized controls, we engineer material handling solutions tailored to your specific operational requirements.
           </p>
-          <button className="bg-brand hover:brightness-110 text-zinc-950 px-12 py-5 rounded-full font-bold flex items-center gap-2 mx-auto transition-all text-xl shadow-[0_0_30px_rgba(56,189,248,0.3)]">
+          <button 
+            onClick={() => navigate("/", { state: { scrollToContact: true } })}
+            className="bg-brand hover:brightness-110 text-zinc-950 px-12 py-5 rounded-full font-bold flex items-center gap-2 mx-auto transition-all text-xl shadow-[0_0_30px_rgba(56,189,248,0.3)]"
+          >
             Request a Custom Quotation
             <ArrowRight className="w-6 h-6" />
           </button>
