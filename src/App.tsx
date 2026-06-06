@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
 import MobilityPage from "./pages/MobilityPage";
 import MaterialHandlingPage from "./pages/MaterialHandlingPage";
 import InnovationPage from "./pages/InnovationPage";
@@ -39,6 +40,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/mobility" element={<MobilityPage />} />
             <Route path="/material-handling" element={<MaterialHandlingPage />} />
             <Route path="/innovation-and-rd" element={<InnovationPage />} />

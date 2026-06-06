@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -55,7 +58,7 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-6"
         >
           <button 
-            onClick={() => scrollToSection("solutions")}
+            onClick={() => navigate("/products")}
             className="bg-brand hover:brightness-110 text-zinc-950 px-10 py-5 rounded-full font-bold flex items-center gap-2 transition-all text-lg shadow-[0_0_30px_rgba(56,189,248,0.3)]"
           >
             Explore Our Products

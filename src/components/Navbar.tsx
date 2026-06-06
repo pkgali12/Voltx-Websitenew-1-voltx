@@ -38,6 +38,7 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-300">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <Link to="/products" className="hover:text-white transition-colors">Products</Link>
           <Link to="/mobility" className="hover:text-white transition-colors">Mobility</Link>
           <Link to="/material-handling" className="hover:text-white transition-colors">Material Handling Equipment</Link>
           <Link to="/innovation-and-rd" className="hover:text-white transition-colors">Custom BLDC Motor drives</Link>
@@ -57,6 +58,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="absolute top-20 left-6 right-6 bg-zinc-900/95 backdrop-blur-xl rounded-2xl p-8 lg:hidden flex flex-col gap-6 border border-white/5">
           <Link to="/" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/products" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Products</Link>
           <Link to="/mobility" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Mobility</Link>
           <Link to="/material-handling" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Material Handling</Link>
           <Link to="/innovation-and-rd" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Custom BLDC Motor drives</Link>
