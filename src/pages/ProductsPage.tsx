@@ -237,7 +237,7 @@ const productsData: Product[] = [
     category: "motor-parts",
     categoryLabel: "Motor Parts",
     description: "Precision hall sensor PCB plate for BLDC hub motors, providing accurate 120° rotor position feedback to the controller for smooth commutation.",
-    image: "/images/Motor Parts and Accessories.png",
+    image: "/images/sensor-plate ebike.jpg",
     specs: [
       { label: "Sensor Angle", value: "120° Hall spacing" },
       { label: "Output", value: "Digital hall signal" },
