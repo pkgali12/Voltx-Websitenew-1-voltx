@@ -159,7 +159,7 @@ const productsData: Product[] = [
     id: "hub-motor",
     name: "High Performance BLDC Hub Motors",
     category: "motors",
-    categoryLabel: "BLDC Motors & Parts",
+    categoryLabel: "BLDC Motors",
     description: "Engineered for high-efficiency electric mobility. Our brushless DC hub motors deliver peak torque, silent operations, and sustained performance, featuring advanced thermal management and rugged hermetic sealing for industrial and consumer EV platforms.",
     image: "/images/BLDC Motors All.png",
     specs: [
@@ -177,8 +177,8 @@ const productsData: Product[] = [
   {
     id: "motor-spares",
     name: "Intelligent Controllers & Smart Spares",
-    category: "motors",
-    categoryLabel: "BLDC Motors & Parts",
+    category: "motor-parts",
+    categoryLabel: "Motor Parts",
     description: "A complete ecosystem of high-quality components to support your EV powertrain. Features precision sine-wave vector controllers, ergonomic throttle controls, high-tensile wiring harnesses, and customizable high-contrast LCD dashboards.",
     image: "/images/Motor Parts and Accessories.png",
     specs: [
@@ -197,7 +197,7 @@ const productsData: Product[] = [
     id: "frontier-bike",
     name: "Frontier E-Bike (Consumer Mobility)",
     category: "bicycles",
-    categoryLabel: "Electric Bicycles & Accessories",
+    categoryLabel: "Electric Bicycles",
     description: "The ultimate city companion. Crafted with a premium lightweight aluminum alloy frame, high-capacity lockable battery, and responsive multi-level pedal assist systems for effortless urban exploration and smart commuting.",
     image: "/images/Frontier.png",
     specs: [
@@ -216,7 +216,7 @@ const productsData: Product[] = [
     id: "qube-bike",
     name: "Qube 26 E-Bike (Heavy-Duty)",
     category: "bicycles",
-    categoryLabel: "Electric Bicycles & Accessories",
+    categoryLabel: "Electric Bicycles",
     description: "Reinforced mild steel frame architecture, heavy-duty suspension, and multi-terrain puncture-resistant tires engineered specifically to conquer off-road trails and meet the rigorous demands of last-mile delivery fleets.",
     image: "/images/Qube26.png",
     specs: [
@@ -234,8 +234,8 @@ const productsData: Product[] = [
   {
     id: "retrofit-kit",
     name: "BLDC Bicycle Retrofit Conversion Kits",
-    category: "bicycles",
-    categoryLabel: "Electric Bicycles & Accessories",
+    category: "conversion-kits",
+    categoryLabel: "EV Conversion Kits",
     description: "Everything you need to convert your standard multi-gear or single-speed bicycle into a high-performance electric commuter. Includes pre-laced hub motor wheel, battery, controller, throttle, and sensor system.",
     image: "/images/ebicycle-kit.jpg",
     specs: [
@@ -253,8 +253,8 @@ const productsData: Product[] = [
   {
     id: "warehouse-trolley",
     name: "Heavy-Duty Warehouse Trolleys",
-    category: "vehicles-indoor",
-    categoryLabel: "Vehicles - Indoor",
+    category: "ev-loaders",
+    categoryLabel: "EV Loaders & Motorised Trolleys",
     description: "Zero-emission, silent-operation material movement platforms engineered for heavy payload transfer across indoor industrial, warehouse, and factory floors. Features continuous run-time capacity and variable speed controls.",
     image: "/images/Battery Operated Trolleys.png",
     specs: [
@@ -272,8 +272,8 @@ const productsData: Product[] = [
   {
     id: "transfer-platform",
     name: "Indoor Industrial Transfer Platforms",
-    category: "vehicles-indoor",
-    categoryLabel: "Vehicles - Indoor",
+    category: "ev-loaders",
+    categoryLabel: "EV Loaders & Motorised Trolleys",
     description: "Robust battery-operated material transfer platforms designed to transport massive mechanical parts, components, and assembly units smoothly across indoor manufacturing bays and production halls.",
     image: "/images/transfer-trolley.jpg",
     specs: [
@@ -291,8 +291,8 @@ const productsData: Product[] = [
   {
     id: "eloader",
     name: "Voltx e-Loaders (1000 KGS Series)",
-    category: "vehicles-outdoor",
-    categoryLabel: "Vehicles - Outdoor",
+    category: "ev-loaders",
+    categoryLabel: "EV Loaders & Motorised Trolleys",
     description: "Expand your logistics capability beyond factory walls. Our premium, high-utilization transfer platforms are custom-engineered for Building-to-Building cargo transit within expansive campuses, handling rough and uneven surfaces.",
     image: "/images/eloaders.png",
     specs: [
@@ -310,8 +310,8 @@ const productsData: Product[] = [
   {
     id: "agribot",
     name: "Remote Controlled Agribot Sprayer",
-    category: "vehicles-outdoor",
-    categoryLabel: "Vehicles - Outdoor",
+    category: "bots",
+    categoryLabel: "BOTs",
     description: "Advanced semi-autonomous agricultural rover featuring specialized Physical AI drivetrain navigation, four-wheel drive, liquid tank system, and telescopic boom spraying nozzles. Built for durability in harsh environments.",
     image: "/images/Remote Controlled BOT.jpg",
     specs: [
@@ -328,7 +328,7 @@ const productsData: Product[] = [
   }
 ];
 
-type FilterType = "all" | "motors" | "bicycles" | "vehicles-indoor" | "vehicles-outdoor";
+type FilterType = "all" | "motors" | "motor-parts" | "bicycles" | "conversion-kits" | "ev-accessories" | "ev-loaders" | "bots";
 
 function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name: string) => void }) {
   const [expanded, setExpanded] = useState(false);
@@ -569,10 +569,13 @@ export default function ProductsPage() {
 
   const categories: { value: FilterType; label: string }[] = [
     { value: "all", label: "All Products" },
-    { value: "motors", label: "BLDC Motors & Parts" },
+    { value: "motors", label: "BLDC Motors" },
+    { value: "motor-parts", label: "Motor Parts" },
     { value: "bicycles", label: "Electric Bicycles" },
-    { value: "vehicles-indoor", label: "Indoor Vehicles" },
-    { value: "vehicles-outdoor", label: "Outdoor Vehicles" }
+    { value: "conversion-kits", label: "EV Conversion Kits" },
+    { value: "ev-accessories", label: "EV Accessories" },
+    { value: "ev-loaders", label: "EV Loaders & Motorised Trolleys" },
+    { value: "bots", label: "BOTs" }
   ];
 
   return (
