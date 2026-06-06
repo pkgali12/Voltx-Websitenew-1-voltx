@@ -175,22 +175,79 @@ const productsData: Product[] = [
     ]
   },
   {
-    id: "motor-spares",
-    name: "Intelligent Controllers & Smart Spares",
+    id: "part-nylon-gears",
+    name: "Nylon Planetary Gears",
     category: "motor-parts",
     categoryLabel: "Motor Parts",
-    description: "A complete ecosystem of high-quality components to support your EV powertrain. Features precision sine-wave vector controllers, ergonomic throttle controls, high-tensile wiring harnesses, and customizable high-contrast LCD dashboards.",
-    image: "/images/Motor Parts and Accessories.png",
+    description: "High-grade nylon planetary gears for 250W/350W geared hub motors, ensuring quiet operation and smooth power delivery under continuous load.",
+    image: "/images/Nylon-gears.jpg",
     specs: [
-      { label: "Input Voltage", value: "36V / 48V / 60V" },
-      { label: "Control Mode", value: "Sine-wave FOC control" },
-      { label: "Interface", value: "UART/CAN smart displays" },
-      { label: "Protection", value: "Over-current & Under-voltage" }
+      { label: "Compatibility", value: "250W / 350W Hub Motors" },
+      { label: "Material", value: "High-grade Engineering Nylon" },
+      { label: "Function", value: "Planetary gear reduction" },
+      { label: "Noise Level", value: "Ultra-quiet operation" }
     ],
     features: [
-      "Smooth acceleration curves via intelligent tuning",
-      "Ergonomic waterproof throttle accessories",
-      "Plug-and-play wiring harnesses for easy integration"
+      "Self-lubricating nylon for reduced friction",
+      "Wear-resistant under continuous torque cycles",
+      "Drop-in replacement for OEM geared motors"
+    ]
+  },
+  {
+    id: "part-metal-gears",
+    name: "Metal Planetary Gears",
+    category: "motor-parts",
+    categoryLabel: "Motor Parts",
+    description: "Heavy-duty metal planetary gears designed for high-torque applications and increased longevity under extreme loads and demanding duty cycles.",
+    image: "/images/Planetary gears.png",
+    specs: [
+      { label: "Compatibility", value: "500W – 2000W Hub Motors" },
+      { label: "Material", value: "Hardened alloy steel" },
+      { label: "Function", value: "High-torque gear reduction" },
+      { label: "Durability", value: "Extended service life" }
+    ],
+    features: [
+      "Heat-treated steel for extreme torque resilience",
+      "Precision-machined for minimal gear backlash",
+      "Suitable for fleet, cargo, and industrial applications"
+    ]
+  },
+  {
+    id: "part-9pin-cable",
+    name: "9-Pin BLDC Motor Cable",
+    category: "motor-parts",
+    categoryLabel: "Motor Parts",
+    description: "Durable 9-pin waterproof motor extension cable featuring precision molded connectors for reliable phase and hall sensor signal transmission.",
+    image: "/images/9pinMotorCable.jpg",
+    specs: [
+      { label: "Pins", value: "9-pin (3 phase + 6 hall)" },
+      { label: "Rating", value: "IP65 Waterproof connector" },
+      { label: "Cable Length", value: "Available in 1m / 2m" },
+      { label: "Compatibility", value: "Universal BLDC hub motors" }
+    ],
+    features: [
+      "Precision molded waterproof connector bodies",
+      "Shielded cable for low signal interference",
+      "Plug-and-play with standard controller ports"
+    ]
+  },
+  {
+    id: "part-sensor-plate",
+    name: "Sensor Plate – 120°",
+    category: "motor-parts",
+    categoryLabel: "Motor Parts",
+    description: "Precision hall sensor PCB plate for BLDC hub motors, providing accurate 120° rotor position feedback to the controller for smooth commutation.",
+    image: "/images/Motor Parts and Accessories.png",
+    specs: [
+      { label: "Sensor Angle", value: "120° Hall spacing" },
+      { label: "Output", value: "Digital hall signal" },
+      { label: "Supply Voltage", value: "5V DC" },
+      { label: "Compatibility", value: "250W – 1000W hub motors" }
+    ],
+    features: [
+      "High-precision rotor position detection",
+      "Compatible with sine-wave and square-wave controllers",
+      "Direct OEM replacement for standard hub motors"
     ]
   },
   {
