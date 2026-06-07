@@ -199,7 +199,7 @@ const productsData: Product[] = [
     category: "motor-parts",
     categoryLabel: "Motor Parts",
     description: "Heavy-duty metal planetary gears designed for high-torque applications and increased longevity under extreme loads and demanding duty cycles.",
-    image: "/images/Planetary gears.png",
+    image: "/images/Metal gears.jpg",
     specs: [
       { label: "Compatibility", value: "500W – 2000W Hub Motors" },
       { label: "Material", value: "Hardened alloy steel" },
