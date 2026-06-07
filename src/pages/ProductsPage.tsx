@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
@@ -778,7 +779,12 @@ export default function ProductsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
+    <>
+      <SEO 
+        title="Products & Components"
+        description="Explore Voltx EV's high-performance BLDC motors, conversion kits, electric bicycles, and components."
+      />
+      <div className="min-h-screen bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-brand/5 blur-[150px] pointer-events-none rounded-full" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
@@ -963,5 +969,6 @@ export default function ProductsPage() {
 
       </div>
     </div>
+    </>
   );
 }

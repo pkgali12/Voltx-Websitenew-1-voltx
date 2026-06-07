@@ -1,8 +1,11 @@
+import SEO from "../components/SEO";
 import { motion } from "motion/react";
 
 export default function TermsAndConditionsPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-300 pt-40 pb-20 px-6">
+    <>
+      <SEO title="Terms and Conditions" description="Terms and Conditions for Voltx EV." />
+      <div className="min-h-screen bg-zinc-950 text-zinc-300 pt-40 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
@@ -121,5 +124,6 @@ export default function TermsAndConditionsPage() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

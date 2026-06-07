@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { Battery, Shield, Zap, ChevronRight, Settings } from "lucide-react";
@@ -5,7 +6,12 @@ import { Battery, Shield, Zap, ChevronRight, Settings } from "lucide-react";
 export default function MobilityPage() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-zinc-950 pt-32 pb-20">
+    <>
+      <SEO 
+        title="Electric Mobility Solutions"
+        description="Experience the future of transportation with Voltx EV's electric mobility solutions, featuring cutting-edge e-bikes and drivetrains."
+      />
+      <div className="min-h-screen bg-zinc-950 pt-32 pb-20">
       {/* Hero Section */}
       <section className="px-6 mb-24 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand/10 blur-[120px] rounded-full -z-10" />

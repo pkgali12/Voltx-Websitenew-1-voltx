@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, ChevronRight, Truck, Package, Activity, ShieldCheck, Factory } from "lucide-react";
@@ -6,7 +7,12 @@ export default function MaterialHandlingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white pt-32 pb-20 mesh-gradient">
+    <>
+      <SEO 
+        title="Material Handling & Loaders"
+        description="Optimize your industrial operations with Voltx EV's zero-emission battery operated trolleys and outdoor facility logistics solutions."
+      />
+      <div className="min-h-screen bg-zinc-950 text-white pt-32 pb-20 mesh-gradient">
       {/* Hero Section */}
       <section className="px-6 mb-32 relative text-center">
         <motion.div

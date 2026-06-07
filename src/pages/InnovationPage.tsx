@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Globe, Navigation, Box, Zap, Settings, Cpu, Microscope } from "lucide-react";
@@ -23,7 +24,12 @@ export default function InnovationPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white pt-32 pb-20 mesh-gradient">
+    <>
+      <SEO 
+        title="R&D and Innovation"
+        description="Learn about Voltx EV's advanced engineering, custom drivetrain development, and our technical competencies in electric mobility."
+      />
+      <div className="min-h-screen bg-zinc-950 text-white pt-32 pb-20 mesh-gradient">
       {/* Hero Section */}
       <section className="px-6 mb-32 relative text-center">
         <motion.div
