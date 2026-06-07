@@ -530,7 +530,7 @@ const productsData: Product[] = [
   }
 ];
 
-type FilterType = "all" | "motors" | "motor-parts" | "bicycles" | "conversion-kits" | "ev-accessories" | "ev-loaders" | "bots";
+type FilterType = "motors" | "motor-parts" | "bicycles" | "conversion-kits" | "ev-accessories" | "ev-loaders" | "bots";
 
 function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name: string) => void }) {
   const [expanded, setExpanded] = useState(false);
@@ -758,19 +758,16 @@ function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name
 }
 
 export default function ProductsPage() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+  const [activeFilter, setActiveFilter] = useState<FilterType>("motors");
   const navigate = useNavigate();
 
-  const filteredProducts = activeFilter === "all"
-    ? productsData
-    : productsData.filter(p => p.category === activeFilter);
+  const filteredProducts = productsData.filter(p => p.category === activeFilter);
 
   const handleInquiry = (productName: string) => {
     navigate("/", { state: { scrollToContact: true, prefillProduct: productName } });
   };
 
   const categories: { value: FilterType; label: string }[] = [
-    { value: "all", label: "All Products" },
     { value: "motors", label: "BLDC Motors" },
     { value: "motor-parts", label: "Motor Parts" },
     { value: "bicycles", label: "Electric Bicycles" },
@@ -813,13 +810,13 @@ export default function ProductsPage() {
           </motion.p>
         </div>
 
-        <div className="sticky top-24 z-40 mb-16 py-4 flex justify-center bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl max-w-fit mx-auto px-4 shadow-xl">
+        <div className="sticky top-24 z-40 mb-16 py-4 flex justify-center bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl w-full max-w-5xl mx-auto px-4 shadow-xl">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setActiveFilter(cat.value)}
-                className={`px-5 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat.value
+                className={`whitespace-nowrap px-5 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat.value
                   ? "bg-brand text-zinc-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
                   : "text-zinc-400 hover:text-white hover:bg-white/5"
                   }`}
