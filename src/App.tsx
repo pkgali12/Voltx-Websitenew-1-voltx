@@ -8,9 +8,6 @@ import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
-import MobilityPage from "./pages/MobilityPage";
-import MaterialHandlingPage from "./pages/MaterialHandlingPage";
-import InnovationPage from "./pages/InnovationPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import CancellationRefundPage from "./pages/CancellationRefundPage";
@@ -41,9 +38,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductsPage />} />
-            <Route path="/mobility" element={<MobilityPage />} />
-            <Route path="/material-handling" element={<MaterialHandlingPage />} />
-            <Route path="/innovation-and-rd" element={<InnovationPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
             <Route path="/cancellation-and-refund" element={<CancellationRefundPage />} />
