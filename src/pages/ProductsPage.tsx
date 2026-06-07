@@ -382,6 +382,151 @@ const productsData: Product[] = [
       "Heavy-duty deep-tread tires for mud and uneven fields",
       "Robust dustproof and splashproof battery container"
     ]
+  },
+  {
+    id: "acc-controller",
+    name: "24/36/48V 250/350W Controller",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "High-efficiency motor controller for reliable EV performance.",
+    image: "/images/Controller-250:350W-24:36:48V.jpg",
+    specs: [
+      { label: "Voltage", value: "24V / 36V / 48V" },
+      { label: "Power", value: "250W / 350W" }
+    ],
+    features: [
+      "Intelligent motor control",
+      "Overload protection"
+    ]
+  },
+  {
+    id: "acc-throttle",
+    name: "36V Throttle with Key and Battery Indicator",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Ergonomic twist throttle with built-in key switch and battery level display.",
+    image: "/images/Throttlewithkey.jpg",
+    specs: [
+      { label: "Voltage", value: "36V" },
+      { label: "Features", value: "Key switch, Battery indicator" }
+    ],
+    features: [
+      "Smooth acceleration control",
+      "Integrated voltage display"
+    ]
+  },
+  {
+    id: "acc-ebrake",
+    name: "eBrake",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Electronic brake levers with motor cut-off sensor for enhanced safety.",
+    image: "/images/ebrake.jpg",
+    specs: [
+      { label: "Type", value: "Electronic Brake Lever" },
+      { label: "Function", value: "Motor cut-off" }
+    ],
+    features: [
+      "Instant power cut-off",
+      "Durable alloy construction"
+    ]
+  },
+  {
+    id: "acc-pas-dustproof",
+    name: "Dust Proof Pedal Assist Sensor",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Sealed pedal assist sensor ensuring reliable power delivery in all conditions.",
+    image: "/images/PAS-dustproof.jpg",
+    specs: [
+      { label: "Type", value: "Pedal Assist Sensor (PAS)" },
+      { label: "Protection", value: "Dust proof & water resistant" }
+    ],
+    features: [
+      "High sensitivity",
+      "Maintenance-free design"
+    ]
+  },
+  {
+    id: "acc-light-horn",
+    name: "Light and Horn",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Integrated LED headlight and electric horn unit for safe night riding.",
+    image: "/images/Lighthorn-single.jpg",
+    specs: [
+      { label: "Function", value: "Illumination & Audio warning" },
+      { label: "Light Type", value: "High-brightness LED" }
+    ],
+    features: [
+      "Compact 2-in-1 design",
+      "Loud, clear horn"
+    ]
+  },
+  {
+    id: "acc-light-horn-switch",
+    name: "Switch for Light and Horn",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Handlebar-mounted switch to conveniently control the light and horn.",
+    image: "/images/Lighthorn switch.jpg",
+    specs: [
+      { label: "Mounting", value: "Handlebar" },
+      { label: "Buttons", value: "Light toggle, Horn press" }
+    ],
+    features: [
+      "Ergonomic design",
+      "Weather-resistant"
+    ]
+  },
+  {
+    id: "acc-pas-led810",
+    name: "PAS LED 810 with 3 Level PAS",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "LED display panel offering 3 levels of pedal assist and battery indicator.",
+    image: "/images/PAS-3level-LED810.jpg",
+    specs: [
+      { label: "Model", value: "LED 810" },
+      { label: "Assist Levels", value: "3 Levels" }
+    ],
+    features: [
+      "Clear LED indicators",
+      "Easy handlebar installation"
+    ]
+  },
+  {
+    id: "acc-battery-hailong",
+    name: "Li-ion Hailong Battery Pack 36V",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "High-capacity lithium-ion Hailong battery pack available in 9Ah, 10.4Ah, and 13Ah configurations.",
+    image: "/images/36V Hailong Battery.jpg",
+    specs: [
+      { label: "Voltage", value: "36V" },
+      { label: "Capacities", value: "9Ah, 10.4Ah, 13Ah" }
+    ],
+    features: [
+      "Secure lock with key",
+      "Easy removal for charging",
+      "Durable case"
+    ]
+  },
+  {
+    id: "acc-battery-charger",
+    name: "2 Amp, 36V (42V max) Battery Charger",
+    category: "ev-accessories",
+    categoryLabel: "EV Accessories",
+    description: "Reliable 2 Amp charger specifically designed for 36V lithium-ion battery packs.",
+    image: "/images/Charger2amp.jpg",
+    specs: [
+      { label: "Output Current", value: "2 Amp" },
+      { label: "Output Voltage", value: "42V Max (for 36V packs)" }
+    ],
+    features: [
+      "Overcharge protection",
+      "LED charging status indicator"
+    ]
   }
 ];
 
