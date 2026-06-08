@@ -30,3 +30,19 @@
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500;
 }
+
+/* Hide Google Translate Banner and Tooltips */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+#goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
