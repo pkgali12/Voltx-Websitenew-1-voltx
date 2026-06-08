@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Download } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +39,26 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-300">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
           <Link to="/products" className="hover:text-white transition-colors">Products</Link>
+          
+          {/* Download Dropdown */}
+          <div className="relative group py-2">
+            <button className="flex items-center gap-1 hover:text-white transition-colors">
+              Download <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-300" />
+            </button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-zinc-900 border border-white/10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto z-50">
+              <div className="p-2">
+                <a 
+                  href="/Voltx_Product_Catalog.pdf" 
+                  download 
+                  className="flex items-center gap-3 px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                >
+                  <Download className="w-4 h-4 text-brand" />
+                  Product Catalog
+                </a>
+              </div>
+            </div>
+          </div>
+
           <Link to="#contact" onClick={handleContactClick} className="hover:text-white transition-colors">Contact</Link>
         </div>
 
@@ -53,9 +73,23 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-6 right-6 bg-zinc-900/95 backdrop-blur-xl rounded-2xl p-8 lg:hidden flex flex-col gap-6 border border-white/5">
+        <div className="absolute top-20 left-6 right-6 bg-zinc-900/95 backdrop-blur-xl rounded-2xl p-8 lg:hidden flex flex-col gap-6 border border-white/5 shadow-2xl">
           <Link to="/" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/products" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Products</Link>
+          
+          <div className="flex flex-col gap-4 py-2 border-y border-white/10">
+            <span className="text-sm font-bold text-white/50 uppercase tracking-wider">Downloads</span>
+            <a 
+              href="/Voltx_Product_Catalog.pdf" 
+              download 
+              className="text-lg font-medium text-zinc-300 flex items-center gap-3"
+              onClick={() => setIsOpen(false)}
+            >
+              <Download className="w-5 h-5 text-brand" />
+              Product Catalog
+            </a>
+          </div>
+
           <Link to="#contact" className="text-lg font-medium" onClick={handleContactClick}>Contact</Link>
         </div>
       )}

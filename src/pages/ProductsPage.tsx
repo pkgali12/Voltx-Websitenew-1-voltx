@@ -30,7 +30,8 @@ import {
   Battery,
   Clock,
   Monitor,
-  Lightbulb
+  Lightbulb,
+  Search
 } from "lucide-react";
 
 interface DetailedSpecCategory {
@@ -835,6 +836,7 @@ function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name
 export default function ProductsPage() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
   const [expandedProductIds, setExpandedProductIds] = useState<Record<string, boolean>>({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleProductExpansion = (productId: string) => {
     setExpandedProductIds((prev) => ({
@@ -1092,7 +1094,22 @@ export default function ProductsPage() {
             </motion.p>
           </div>
 
-          <div className="sticky top-24 z-40 mb-16 py-4 flex justify-center bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl w-full max-w-5xl mx-auto px-4 shadow-xl">
+          <div className="sticky top-24 z-40 mb-16 py-4 flex flex-col items-center gap-6 bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl w-full max-w-5xl mx-auto px-4 shadow-xl">
+            {/* Search Input */}
+            <div className="relative w-full max-w-md">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-zinc-500" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-11 pr-4 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
+              />
+            </div>
+
+            {/* Category Filters */}
             <div className="flex flex-wrap gap-2 justify-center">
               {categories.map((cat) => (
                 <button
@@ -1111,7 +1128,14 @@ export default function ProductsPage() {
 
           <div className="grid lg:grid-cols-1 gap-24">
             {categoriesToRender.map((cat) => {
-              const productsInCat = productsData.filter(p => p.category === cat.value);
+              const filteredProducts = productsData.filter(product => {
+                if (!searchQuery) return true;
+                const query = searchQuery.toLowerCase();
+                return product.name.toLowerCase().includes(query) || 
+                       product.description.toLowerCase().includes(query) ||
+                       product.categoryLabel.toLowerCase().includes(query);
+              });
+              const productsInCat = filteredProducts.filter(p => p.category === cat.value);
               if (productsInCat.length === 0) return null;
 
               return (
