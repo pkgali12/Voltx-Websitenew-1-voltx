@@ -1,5 +1,5 @@
 import SEO from "../components/SEO";
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,18 +10,45 @@ import {
   ChevronDown,
   Gauge,
   Cpu,
-  Sparkles
+  Sparkles,
+  Activity,
+  Settings,
+  Shield,
+  Coins,
+  UserCheck,
+  Leaf,
+  Box,
+  GitMerge,
+  GripHorizontal,
+  CircleStop,
+  Circle,
+  User,
+  Scale,
+  Settings2,
+  Route,
+  Package,
+  Battery,
+  Clock,
+  Monitor,
+  Lightbulb
 } from "lucide-react";
+
+interface DetailedSpecCategory {
+  title: string;
+  items: { label: string; value: string; icon?: React.ReactNode }[];
+}
 
 interface Product {
   id: string;
   name: string;
-  category: "motors" | "bicycles" | "vehicles-indoor" | "vehicles-outdoor";
+  category: string;
   categoryLabel: string;
   description: string;
   image: string;
   specs: { label: string; value: string }[];
   features: string[];
+  detailedSpecs?: DetailedSpecCategory[];
+  price?: string;
 }
 
 interface MotorDetails {
@@ -258,6 +285,7 @@ const productsData: Product[] = [
     categoryLabel: "Electric Bicycles",
     description: "The ultimate city companion. Crafted with a premium lightweight aluminum alloy frame, high-capacity lockable battery, and responsive multi-level pedal assist systems for effortless urban exploration and smart commuting.",
     image: "/images/Frontier.png",
+    price: "₹29,000",
     specs: [
       { label: "Frame", value: "Grade 6061 Aluminum Alloy" },
       { label: "Battery", value: "10.4 Ah Hailong Li-ion" },
@@ -266,8 +294,58 @@ const productsData: Product[] = [
     ],
     features: [
       "Integrated smart battery management system (BMS)",
-      "Hydraulic front fork suspension for maximum comfort",
+      "Front fork suspension for maximum comfort",
       "Dual mechanical disc brakes for high stopping power"
+    ],
+    detailedSpecs: [
+      {
+        title: "Mechanical Specifications",
+        items: [
+          { label: "Frame", value: "Aluminium Alloy 6061", icon: <Box className="w-4 h-4 text-brand" /> },
+          { label: "Fork", value: "Front Adjustable Suspension", icon: <GitMerge className="w-4 h-4 text-brand" /> },
+          { label: "Handlebar", value: "700mm wide", icon: <GripHorizontal className="w-4 h-4 text-brand" /> },
+          { label: "Brakes", value: "Dual Disc Brakes with Power cut-off", icon: <CircleStop className="w-4 h-4 text-brand" /> },
+          { label: "Crank Set", value: "42T", icon: <Settings className="w-4 h-4 text-brand" /> },
+          { label: "Derailleur", value: "Shimano Tourney", icon: <Settings2 className="w-4 h-4 text-brand" /> },
+          { label: "Wheels", value: "RalsonTyre 27.5\" x 2.10\" Nylon", icon: <Circle className="w-4 h-4 text-brand" /> },
+          { label: "Saddle", value: "Comfortable Sports Saddle", icon: <User className="w-4 h-4 text-brand" /> },
+          { label: "Weight", value: "20Kg", icon: <Scale className="w-4 h-4 text-brand" /> },
+          { label: "BB Set", value: "Cotterless cartridge", icon: <Box className="w-4 h-4 text-brand" /> },
+          { label: "Chain", value: "Maya", icon: <Settings2 className="w-4 h-4 text-brand" /> },
+          { label: "Gears", value: "7 Speed Shimano", icon: <Settings className="w-4 h-4 text-brand" /> },
+          { label: "Spokes", value: "13G Alloy", icon: <Circle className="w-4 h-4 text-brand" /> },
+          { label: "Tube", value: "American Nozzle", icon: <Circle className="w-4 h-4 text-brand" /> },
+          { label: "Rim", value: "Double wall Alloy", icon: <Circle className="w-4 h-4 text-brand" /> },
+          { label: "Shifter", value: "7-Speed Shimano", icon: <Settings2 className="w-4 h-4 text-brand" /> },
+          { label: "Pedals", value: "Alloy", icon: <Activity className="w-4 h-4 text-brand" /> },
+          { label: "Colour", value: "Glossy Red, Glossy Grey", icon: <Sparkles className="w-4 h-4 text-brand" /> }
+        ]
+      },
+      {
+        title: "Electrical & Other Specifications",
+        items: [
+          { label: "Speed", value: "25km", icon: <Gauge className="w-4 h-4 text-brand" /> },
+          { label: "Range", value: "50-60km", icon: <Route className="w-4 h-4 text-brand" /> },
+          { label: "Payload", value: "130kg", icon: <Package className="w-4 h-4 text-brand" /> },
+          { label: "Battery", value: "Lithium-ion 36V, 10.4Ah", icon: <Battery className="w-4 h-4 text-brand" /> },
+          { label: "Charging Time", value: "4Hrs 30Mins", icon: <Clock className="w-4 h-4 text-brand" /> },
+          { label: "Motor", value: "BLDC 36V 250W", icon: <Cpu className="w-4 h-4 text-brand" /> },
+          { label: "Pedal Assistance", value: "3 Levels", icon: <Activity className="w-4 h-4 text-brand" /> },
+          { label: "Display", value: "LCD with Key lock", icon: <Monitor className="w-4 h-4 text-brand" /> },
+          { label: "Headlight", value: "LED", icon: <Lightbulb className="w-4 h-4 text-brand" /> }
+        ]
+      },
+      {
+        title: "Features",
+        items: [
+          { label: "Throttle", value: "Twist Throttle with Lock", icon: <Activity className="w-4 h-4 text-brand" /> },
+          { label: "Cruise mode & Walk Assist", value: "Fixed speed of 6Km/Hr", icon: <Settings className="w-4 h-4 text-brand" /> },
+          { label: "Weather Proof", value: "IP 65 & IP 67", icon: <Shield className="w-4 h-4 text-brand" /> },
+          { label: "Economy", value: "7 Paisa/KM", icon: <Coins className="w-4 h-4 text-brand" /> },
+          { label: "License", value: "Need No License, Ride uninterrupted", icon: <UserCheck className="w-4 h-4 text-brand" /> },
+          { label: "Eco - Friendly", value: "Zero Carbon Emission", icon: <Leaf className="w-4 h-4 text-brand" /> }
+        ]
+      }
     ]
   },
   {
@@ -303,8 +381,8 @@ const productsData: Product[] = [
       { label: "Kit Inclusions", value: "Motor, Battery, LCD, Throttle, PAS" }
     ],
     features: [
-      "Waterproof connectors and wiring loom",
-      "Intelligent torque/cadence sensor compatibility",
+      "Motors for geared and non-geared bicycles",
+      "PAS, Throttle with Key, Controller, eBrake, Inbuilt 9ah Battery",
       "Universal fit for standard rear dropouts"
     ]
   },
@@ -531,7 +609,7 @@ const productsData: Product[] = [
   }
 ];
 
-type FilterType = "motors" | "motor-parts" | "bicycles" | "conversion-kits" | "ev-accessories" | "ev-loaders" | "bots";
+type FilterType = "all" | "motors" | "motor-parts" | "bicycles" | "conversion-kits" | "ev-accessories" | "ev-loaders" | "bots";
 
 function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name: string) => void }) {
   const [expanded, setExpanded] = useState(false);
@@ -759,16 +837,24 @@ function MotorTile({ motor, onInquire }: { motor: MotorDetails; onInquire: (name
 }
 
 export default function ProductsPage() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>("motors");
-  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+  const [expandedProductIds, setExpandedProductIds] = useState<Record<string, boolean>>({});
 
-  const filteredProducts = productsData.filter(p => p.category === activeFilter);
+  const toggleProductExpansion = (productId: string) => {
+    setExpandedProductIds((prev) => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }));
+  };
+
+  const navigate = useNavigate();
 
   const handleInquiry = (productName: string) => {
     navigate("/", { state: { scrollToContact: true, prefillProduct: productName } });
   };
 
   const categories: { value: FilterType; label: string }[] = [
+    { value: "all", label: "All Products" },
     { value: "motors", label: "BLDC Motors" },
     { value: "motor-parts", label: "Motor Parts" },
     { value: "bicycles", label: "Electric Bicycles" },
@@ -778,197 +864,273 @@ export default function ProductsPage() {
     { value: "bots", label: "BOTs" }
   ];
 
+  const categoriesToRender = activeFilter === "all" 
+    ? categories.filter(c => c.value !== "all") 
+    : categories.filter(c => c.value === activeFilter);
+
+  const renderProduct = (product: Product, idx: number) => {
+    if (product.id === "hub-motor") {
+      return (
+        <motion.div
+          layout
+          key={product.id}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.5, delay: idx * 0.05 }}
+          className="col-span-12"
+        >
+          <div className="border border-white/10 rounded-[40px] p-8 md:p-12 bg-zinc-900/10 backdrop-blur-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 blur-[80px] -z-10 pointer-events-none rounded-full" />
+
+            <div className="mb-10 text-center md:text-left">
+              <span className="px-4 py-1.5 rounded-full bg-zinc-900 text-white text-[10px] uppercase font-bold tracking-widest border border-white/10">
+                {product.categoryLabel}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mt-6 mb-4 uppercase">
+                Our Custom BLDC Motors Range
+              </h2>
+              <p className="text-zinc-400 text-sm max-w-2xl leading-relaxed">
+                {product.description}
+              </p>
+
+              <div className="flex flex-wrap gap-3 mt-6">
+                {(Object.entries(TIER_CONFIG) as [keyof typeof TIER_CONFIG, typeof TIER_CONFIG[keyof typeof TIER_CONFIG]][]).map(([key, val]) => (
+                  <span key={key} className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border ${val.badge}`}>
+                    <span className={`w-2 h-2 rounded-full ${val.dot}`} />
+                    {val.label}
+                  </span>
+                ))}
+              </div>
+              <div className="grid md:grid-cols-3 gap-6 mt-8">
+                {motorsData.map((motor) => (
+                  <MotorTile key={motor.id} motor={motor} onInquire={handleInquiry} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      );
+    }
+
+    return (
+      <motion.div
+        layout
+        key={product.id}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.5, delay: idx * 0.05 }}
+        className="glass border border-white/10 rounded-[40px] overflow-hidden hover:border-brand/30 transition-all duration-500 shadow-2xl relative group grid md:grid-cols-12 gap-0"
+      >
+        {/* Product Image Area */}
+        <div className="md:col-span-5 bg-white relative flex items-center justify-center p-8 overflow-hidden min-h-[300px] md:min-h-full">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain max-h-[350px] group-hover:scale-105 transition-transform duration-700 mix-blend-multiply"
+            referrerPolicy="no-referrer"
+          />
+          <span className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-zinc-900 text-white text-[10px] uppercase font-bold tracking-widest border border-white/10">
+            {product.categoryLabel}
+          </span>
+        </div>
+
+        {/* Product Text Area */}
+        <div className="md:col-span-7 p-10 md:p-14 flex flex-col justify-between">
+          <div>
+            {/* Title */}
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 uppercase tracking-tight group-hover:text-brand transition-colors leading-tight">
+              {product.name}
+            </h2>
+
+            {/* Description */}
+            <p className="text-zinc-400 text-base leading-relaxed mb-8">
+              {product.description}
+            </p>
+
+            {/* Specs Grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {product.specs.map((spec, i) => (
+                <div key={i} className="flex flex-col p-4 rounded-2xl bg-zinc-900/40 border border-white/5">
+                  <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-1">
+                    {spec.label}
+                  </span>
+                  <span className="text-zinc-200 font-semibold text-sm">
+                    {spec.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Features List */}
+            <div className="mb-8">
+              <h4 className="text-xs uppercase font-bold tracking-widest text-zinc-500 mb-4 flex items-center gap-2">
+                <Info className="w-4 h-4 text-brand" />
+                Key Highlights
+              </h4>
+              <ul className="space-y-2">
+                {product.features.map((feat, i) => (
+                  <li key={i} className="flex items-center gap-3 text-zinc-400 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="mt-6 flex flex-wrap gap-4 items-center">
+            <button
+              onClick={() => handleInquiry(product.name)}
+              className="bg-brand hover:brightness-110 text-zinc-950 px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all text-sm shadow-[0_0_20px_rgba(56,189,248,0.2)]"
+            >
+              {product.price ? `Price ${product.price}` : "Request Technical Quotation"}
+              {!product.price && <ArrowRight className="w-4 h-4" />}
+            </button>
+            
+            {product.detailedSpecs && product.detailedSpecs.length > 0 && (
+              <button
+                onClick={() => toggleProductExpansion(product.id)}
+                className="bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all text-sm border border-white/10"
+              >
+                {expandedProductIds[product.id] ? "Hide Specifications" : "View Full Specifications"}
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expandedProductIds[product.id] ? "rotate-180" : ""}`} />
+              </button>
+            )}
+          </div>
+          
+          {/* Detailed Specs Accordion */}
+          <AnimatePresence>
+            {product.detailedSpecs && expandedProductIds[product.id] && (
+              <motion.div
+                initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                animate={{ height: "auto", opacity: 1, marginTop: 32 }}
+                exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="overflow-hidden border-t border-white/10 pt-8"
+              >
+                <div className="grid lg:grid-cols-2 gap-10">
+                  {product.detailedSpecs.map((category, catIdx) => (
+                    <div key={catIdx}>
+                      <h4 className="text-sm font-bold tracking-widest text-brand uppercase mb-6 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4" />
+                        {category.title}
+                      </h4>
+                      <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
+                        {category.items.map((item, itemIdx) => (
+                          <div key={itemIdx} className="flex gap-3 border-b border-white/5 pb-2">
+                            {item.icon && (
+                              <div className="mt-0.5 opacity-80">
+                                {item.icon}
+                              </div>
+                            )}
+                            <div className="flex flex-col">
+                              <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider mb-1">
+                                {item.label}
+                              </span>
+                              <span className="text-zinc-300 text-sm font-medium">
+                                {item.value}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+        </div>
+      </motion.div>
+    );
+  };
+
   return (
     <>
-      <SEO 
+      <SEO
         title="Products & Components"
         description="Explore Voltx EV's high-performance BLDC motors, conversion kits, electric bicycles, and components."
       />
       <div className="min-h-screen bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-brand/5 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-brand/5 blur-[150px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-brand text-xs font-bold tracking-widest uppercase mb-6"
-          >
-            <ShoppingBag className="w-3.5 h-3.5" />
-            Product Portfolio
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight uppercase"
-          >
-            Voltx EV <span className="text-brand shadow-brand drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] italic">Products</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-zinc-400 text-lg md:text-xl leading-relaxed"
-          >
-            Explore our state-of-the-art electric drivetrains, high-performance clean-energy e-bikes, and zero-emission industrial logistics equipment.
-          </motion.p>
-        </div>
-
-        <div className="sticky top-24 z-40 mb-16 py-4 flex justify-center bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl w-full max-w-5xl mx-auto px-4 shadow-xl">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((cat) => (
-              <button
-                key={cat.value}
-                onClick={() => setActiveFilter(cat.value)}
-                className={`whitespace-nowrap px-5 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat.value
-                  ? "bg-brand text-zinc-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
-                  : "text-zinc-400 hover:text-white hover:bg-white/5"
-                  }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-brand text-xs font-bold tracking-widest uppercase mb-6"
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              Product Portfolio
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight uppercase"
+            >
+              Voltx EV <span className="text-brand shadow-brand drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] italic">Products</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-zinc-400 text-lg md:text-xl leading-relaxed"
+            >
+              Explore our state-of-the-art electric drivetrains, high-performance clean-energy e-bikes, and zero-emission industrial logistics equipment.
+            </motion.p>
           </div>
-        </div>
 
-        <motion.div
-          layout
-          className="grid lg:grid-cols-1 gap-12"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product, idx) => {
-              if (product.id === "hub-motor") {
-                return (
-                  <motion.div
-                    layout
-                    key={product.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5, delay: idx * 0.05 }}
-                    className="col-span-12"
-                  >
-                    <div className="border border-white/10 rounded-[40px] p-8 md:p-12 bg-zinc-900/10 backdrop-blur-md relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 blur-[80px] -z-10 pointer-events-none rounded-full" />
+          <div className="sticky top-24 z-40 mb-16 py-4 flex justify-center bg-zinc-950/70 backdrop-blur-md border border-white/5 rounded-3xl w-full max-w-5xl mx-auto px-4 shadow-xl">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((cat) => (
+                <button
+                  key={cat.value}
+                  onClick={() => setActiveFilter(cat.value)}
+                  className={`whitespace-nowrap px-5 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat.value
+                    ? "bg-brand text-zinc-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
+                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-                      <div className="mb-10 text-center md:text-left">
-                        <span className="px-4 py-1.5 rounded-full bg-zinc-900 text-white text-[10px] uppercase font-bold tracking-widest border border-white/10">
-                          {product.categoryLabel}
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mt-6 mb-4 uppercase">
-                          Our Custom BLDC Motors Range
-                        </h2>
-                        <p className="text-zinc-400 text-sm max-w-2xl leading-relaxed">
-                          {product.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-3 mt-6">
-                          {(Object.entries(TIER_CONFIG) as [keyof typeof TIER_CONFIG, typeof TIER_CONFIG[keyof typeof TIER_CONFIG]][]).map(([key, val]) => (
-                            <span key={key} className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border ${val.badge}`}>
-                              <span className={`w-2 h-2 rounded-full ${val.dot}`} />
-                              {val.label}
-                            </span>
-                          ))}
-                        </div>
-                        <div className="grid md:grid-cols-3 gap-6">
-                          {motorsData.map((motor) => (
-                            <MotorTile key={motor.id} motor={motor} onInquire={handleInquiry} />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              }
+          <div className="grid lg:grid-cols-1 gap-24">
+            {categoriesToRender.map((cat) => {
+              const productsInCat = productsData.filter(p => p.category === cat.value);
+              if (productsInCat.length === 0) return null;
 
               return (
-                <motion.div
-                  layout
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="glass border border-white/10 rounded-[40px] overflow-hidden hover:border-brand/30 transition-all duration-500 shadow-2xl relative group grid md:grid-cols-12 gap-0"
-                >
-                  {/* Product Image Area */}
-                  <div className="md:col-span-5 bg-white relative flex items-center justify-center p-8 overflow-hidden min-h-[300px] md:min-h-full">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-contain max-h-[350px] group-hover:scale-105 transition-transform duration-700 mix-blend-multiply"
-                      referrerPolicy="no-referrer"
-                    />
-                    <span className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-zinc-900 text-white text-[10px] uppercase font-bold tracking-widest border border-white/10">
-                      {product.categoryLabel}
-                    </span>
-                  </div>
-
-                  {/* Product Text Area */}
-                  <div className="md:col-span-7 p-10 md:p-14 flex flex-col justify-between">
-                    <div>
-                      {/* Title */}
-                      <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 uppercase tracking-tight group-hover:text-brand transition-colors leading-tight">
-                        {product.name}
+                <div key={cat.value}>
+                  {activeFilter === "all" && (
+                    <div className="mb-10 flex items-center gap-4">
+                      <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight">
+                        {cat.label}
                       </h2>
-
-                      {/* Description */}
-                      <p className="text-zinc-400 text-base leading-relaxed mb-8">
-                        {product.description}
-                      </p>
-
-                      {/* Specs Grid */}
-                      <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                        {product.specs.map((spec, i) => (
-                          <div key={i} className="flex flex-col p-4 rounded-2xl bg-zinc-900/40 border border-white/5">
-                            <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-1">
-                              {spec.label}
-                            </span>
-                            <span className="text-zinc-200 font-semibold text-sm">
-                              {spec.value}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Features List */}
-                      <div className="mb-8">
-                        <h4 className="text-xs uppercase font-bold tracking-widest text-zinc-500 mb-4 flex items-center gap-2">
-                          <Info className="w-4 h-4 text-brand" />
-                          Key Highlights
-                        </h4>
-                        <ul className="space-y-2">
-                          {product.features.map((feat, i) => (
-                            <li key={i} className="flex items-center gap-3 text-zinc-400 text-sm">
-                              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-                              {feat}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
                     </div>
-
-                    {/* Actions */}
-                    <div className="mt-6 flex flex-wrap gap-4 items-center">
-                      <button
-                        onClick={() => handleInquiry(product.name)}
-                        className="bg-brand hover:brightness-110 text-zinc-950 px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all text-sm shadow-[0_0_20px_rgba(56,189,248,0.2)]"
-                      >
-                        Request Technical Quotation
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
+                  )}
+                  <motion.div layout className="grid lg:grid-cols-1 gap-12">
+                    <AnimatePresence mode="popLayout">
+                      {productsInCat.map((product, idx) => renderProduct(product, idx))}
+                    </AnimatePresence>
+                  </motion.div>
+                </div>
               );
             })}
-          </AnimatePresence>
-        </motion.div>
+          </div>
 
+        </div>
       </div>
-    </div>
     </>
   );
 }
