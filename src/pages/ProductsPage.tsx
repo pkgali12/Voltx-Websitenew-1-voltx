@@ -209,6 +209,7 @@ const productsData: Product[] = [
     categoryLabel: "Motor Parts",
     description: "High-grade nylon planetary gears for 250W/350W geared hub motors, ensuring quiet operation and smooth power delivery under continuous load.",
     image: "/images/Nylon-gears.jpg",
+    price: "₹95 (single piece)",
     specs: [
       { label: "Compatibility", value: "250W / 350W Hub Motors" },
       { label: "Material", value: "High-grade Engineering Nylon" },
@@ -228,6 +229,7 @@ const productsData: Product[] = [
     categoryLabel: "Motor Parts",
     description: "Heavy-duty metal planetary gears designed for high-torque applications and increased longevity under extreme loads and demanding duty cycles.",
     image: "/images/Metal gears.jpg",
+    price: "₹200 (single piece)",
     specs: [
       { label: "Compatibility", value: "500W – 2000W Hub Motors" },
       { label: "Material", value: "Hardened alloy steel" },
@@ -247,6 +249,7 @@ const productsData: Product[] = [
     categoryLabel: "Motor Parts",
     description: "Durable 9-pin waterproof motor extension cable featuring precision molded connectors for reliable phase and hall sensor signal transmission.",
     image: "/images/9pinMotorCable.jpg",
+    price: "₹350",
     specs: [
       { label: "Pins", value: "9-pin (3 phase + 6 hall)" },
       { label: "Rating", value: "IP65 Waterproof connector" },
@@ -266,6 +269,7 @@ const productsData: Product[] = [
     categoryLabel: "Motor Parts",
     description: "Precision hall sensor PCB plate for BLDC hub motors, providing accurate 120° rotor position feedback to the controller for smooth commutation.",
     image: "/images/sensor-plate ebike.jpg",
+    price: "₹150",
     specs: [
       { label: "Sensor Angle", value: "120° Hall spacing" },
       { label: "Output", value: "Digital hall signal" },
@@ -355,6 +359,7 @@ const productsData: Product[] = [
     categoryLabel: "Electric Bicycles",
     description: "Reinforced mild steel frame architecture, heavy-duty suspension, and multi-terrain puncture-resistant tires engineered specifically to conquer off-road trails and meet the rigorous demands of last-mile delivery fleets.",
     image: "/images/Qube26.png",
+    price: "₹23,000",
     specs: [
       { label: "Frame", value: "Reinforced High-Tensile Steel" },
       { label: "Suspension", value: "Front Dual-Damper Fork" },
@@ -374,6 +379,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Conversion Kits",
     description: "Everything you need to convert your standard multi-gear or single-speed bicycle into a high-performance electric commuter. Includes pre-laced hub motor wheel, battery, controller, throttle, and sensor system.",
     image: "/images/ebicycle-kit.jpg",
+    price: "₹18,000",
     specs: [
       { label: "Motor Type", value: "36V 250W Rear Hub Motor" },
       { label: "Installation", value: "Under 2 hours setup" },
@@ -403,25 +409,6 @@ const productsData: Product[] = [
       "Zero indoor emission, ideal for closed warehouses",
       "Electromagnetic safety braking system",
       "Extremely small turning radius for tight aisleways"
-    ]
-  },
-  {
-    id: "transfer-platform",
-    name: "Indoor Industrial Transfer Platforms",
-    category: "ev-loaders",
-    categoryLabel: "EV Loaders & Motorised Trolleys",
-    description: "Robust battery-operated material transfer platforms designed to transport massive mechanical parts, components, and assembly units smoothly across indoor manufacturing bays and production halls.",
-    image: "/images/transfer-trolley.jpg",
-    specs: [
-      { label: "Payload Capacity", value: "1 Ton - 5 Tons" },
-      { label: "Deck Type", value: "Anti-skid structural steel plate" },
-      { label: "Drive System", value: "Heavy-duty electric drive axle" },
-      { label: "Operation", value: "Pendant / Wireless Remote control" }
-    ],
-    features: [
-      "Ultra-low deck profile for easy fork/crane loading",
-      "Integrated audible alarm and LED warning lights",
-      "Highly durable PU wheels that protect concrete floors"
     ]
   },
   {
@@ -469,6 +456,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "High-efficiency motor controller for reliable EV performance.",
     image: "/images/Controller-250:350W-24:36:48V.jpg",
+    price: "₹1,300",
     specs: [
       { label: "Voltage", value: "24V / 36V / 48V" },
       { label: "Power", value: "250W / 350W" }
@@ -485,6 +473,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Ergonomic twist throttle with built-in key switch and battery level display.",
     image: "/images/Throttlewithkey.jpg",
+    price: "₹550",
     specs: [
       { label: "Voltage", value: "36V" },
       { label: "Features", value: "Key switch, Battery indicator" }
@@ -501,6 +490,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Electronic brake levers with motor cut-off sensor for enhanced safety.",
     image: "/images/ebrake.jpg",
+    price: "₹400",
     specs: [
       { label: "Type", value: "Electronic Brake Lever" },
       { label: "Function", value: "Motor cut-off" }
@@ -517,6 +507,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Sealed pedal assist sensor ensuring reliable power delivery in all conditions.",
     image: "/images/PAS-dustproof.jpg",
+    price: "₹400",
     specs: [
       { label: "Type", value: "Pedal Assist Sensor (PAS)" },
       { label: "Protection", value: "Dust proof & water resistant" }
@@ -533,6 +524,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Integrated LED headlight and electric horn unit for safe night riding.",
     image: "/images/Lighthorn-single.jpg",
+    price: "₹450",
     specs: [
       { label: "Function", value: "Illumination & Audio warning" },
       { label: "Light Type", value: "High-brightness LED" }
@@ -549,6 +541,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Handlebar-mounted switch to conveniently control the light and horn.",
     image: "/images/Lighthorn switch.jpg",
+    price: "₹300",
     specs: [
       { label: "Mounting", value: "Handlebar" },
       { label: "Buttons", value: "Light toggle, Horn press" }
@@ -565,6 +558,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "LED display panel offering 3 levels of pedal assist and battery indicator.",
     image: "/images/PAS-3level-LED810.jpg",
+    price: "₹900",
     specs: [
       { label: "Model", value: "LED 810" },
       { label: "Assist Levels", value: "3 Levels" }
@@ -579,8 +573,9 @@ const productsData: Product[] = [
     name: "Li-ion Hailong Battery Pack 36V",
     category: "ev-accessories",
     categoryLabel: "EV Accessories",
-    description: "High-capacity lithium-ion Hailong battery pack available in 9Ah, 10.4Ah, and 13Ah configurations.",
+    description: "High-capacity lithium-ion Hailong battery pack available in 9Ah, 10.4Ah, and 13.5Ah configurations.",
     image: "/images/36V Hailong Battery.jpg",
+    price: "₹9,500 (9Ah) / ₹11,500 (13.5Ah)",
     specs: [
       { label: "Voltage", value: "36V" },
       { label: "Capacities", value: "9Ah, 10.4Ah, 13Ah" }
@@ -598,6 +593,7 @@ const productsData: Product[] = [
     categoryLabel: "EV Accessories",
     description: "Reliable 2 Amp charger specifically designed for 36V lithium-ion battery packs.",
     image: "/images/Charger2amp.jpg",
+    price: "₹1000",
     specs: [
       { label: "Output Current", value: "2 Amp" },
       { label: "Output Voltage", value: "42V Max (for 36V packs)" }
@@ -864,8 +860,8 @@ export default function ProductsPage() {
     { value: "bots", label: "BOTs" }
   ];
 
-  const categoriesToRender = activeFilter === "all" 
-    ? categories.filter(c => c.value !== "all") 
+  const categoriesToRender = activeFilter === "all"
+    ? categories.filter(c => c.value !== "all")
     : categories.filter(c => c.value === activeFilter);
 
   const renderProduct = (product: Product, idx: number) => {
@@ -982,14 +978,23 @@ export default function ProductsPage() {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-4 items-center">
-            <button
-              onClick={() => handleInquiry(product.name)}
-              className="bg-brand hover:brightness-110 text-zinc-950 px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all text-sm shadow-[0_0_20px_rgba(56,189,248,0.2)]"
-            >
-              {product.price ? `Price ${product.price}` : "Request Technical Quotation"}
-              {!product.price && <ArrowRight className="w-4 h-4" />}
-            </button>
-            
+            {(() => {
+              const showQuotation = product.id === "warehouse-trolley" || product.category === "bots";
+              const showPrice = !!product.price;
+
+              if (!showQuotation && !showPrice) return null;
+
+              return (
+                <button
+                  onClick={() => handleInquiry(product.name)}
+                  className="bg-brand hover:brightness-110 text-zinc-950 px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all text-sm shadow-[0_0_20px_rgba(56,189,248,0.2)]"
+                >
+                  {product.price ? `Price ${product.price}` : "Request Technical Quotation"}
+                  {!product.price && <ArrowRight className="w-4 h-4" />}
+                </button>
+              );
+            })()}
+
             {product.detailedSpecs && product.detailedSpecs.length > 0 && (
               <button
                 onClick={() => toggleProductExpansion(product.id)}
@@ -1000,7 +1005,7 @@ export default function ProductsPage() {
               </button>
             )}
           </div>
-          
+
           {/* Detailed Specs Accordion */}
           <AnimatePresence>
             {product.detailedSpecs && expandedProductIds[product.id] && (
